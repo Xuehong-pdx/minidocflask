@@ -12,7 +12,6 @@ services:
     network_mode: "host"
     volumes:
       - .:/minidoc
-      - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env  
 
