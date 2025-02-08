@@ -3,13 +3,12 @@ services:
     build: .
     container_name: minidoc
     image: minidoc:latest
-    command: bash -c 'python /minidoc/app.py'
     ports:
       - '5001:5001'
     dns:
       - 8.8.8.8
       - 8.8.4.4
-    network_mode: "host"
+    
     volumes:
       - .:/minidoc
     env_file:

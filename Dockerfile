@@ -2,18 +2,6 @@ FROM python:3.10-bullseye
 ENV PYTHONUNBUFFERED=1
 WORKDIR /minidoc
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ntp \
-    ca-certificates \
-    libssl-dev \
-    openssl \
-    iputils-ping \
-    telnet \
-    dnsutils \
-    iproute2 && \
-    rm -rf /var/lib/apt/lists/*
-
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
@@ -24,3 +12,6 @@ RUN pip install --upgrade pip && \
 COPY . .
 
 EXPOSE 5001
+
+CMD ["python", "/minidoc/app.py"] 
+
